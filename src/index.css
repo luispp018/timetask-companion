@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: #0d1117; /* Dark background */
+  color: #c9d1d9; /* Light text color for contrast */
+}
+
+#root {
+  height: 100%;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+}
+
+.button {
+  background-color: #1e40af; /* Neon blue background */
+  color: #ffffff; /* White text */
+  border: none;
+  padding: 15px 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.button:hover {
+  background-color: #4f75ff; /* Lighter neon blue on hover */
+  transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+.neon-text {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1e40af; /* Neon blue text */
+  text-shadow: 0 0 5px #1e40af, 0 0 10px #1e40af, 0 0 20px #1e40af, 0 0 40px #1e40af;
+  animation: neon-flicker 1.5s infinite alternate;
+}
+
+@keyframes neon-flicker {
+  from {
+    text-shadow: 0 0 5px #1e40af, 0 0 10px #1e40af, 0 0 20px #1e40af, 0 0 40px #1e40af;
+  }
+  to {
+    text-shadow: 0 0 10px #1e40af, 0 0 20px #1e40af, 0 0 40px #1e40af, 0 0 80px #1e40af;
+  }
+}
+
+.focused-text {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #c9d1d9; /* Light text color for contrast */
+  margin-bottom: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #0d1117; /* Same as page background */
+  border-bottom: 1px solid #333; /* Subtle dividing line */
+}
+
+.header-button {
+  background: none;
+  border: none;
+  color: #ffffff; /* White text */
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.header-button:hover {
+  color: #4f75ff; /* Lighter neon blue on hover */
+}
+
+.header-icon {
+  border: 2px solid #ffffff; /* White outline */
+  border-radius: 50%;
+  padding: 5px;
+  transition: border-color 0.3s ease;
+}
+
+.header-icon:hover {
+  border-color: #4f75ff; /* Lighter neon blue on hover */
+}
+
+.clock-icon-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.clock-icon-button:hover {
+  transform: scale(1.1); /* Slightly enlarge the button on hover */
+}
+
+.clock-icon {
+  font-size: 2rem;
+  color: #1e40af; /* Neon blue color */
+  margin-right: 10px;
+}
+
+.clock-icon-label {
+  font-size: 1.5rem;
+  color: #c9d1d9; /* Light text color for contrast */
+}
