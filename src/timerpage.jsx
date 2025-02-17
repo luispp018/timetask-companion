@@ -1,18 +1,15 @@
 // src/TimerPage.jsx
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Sound from "react-sound";
 import "./index.css";
 import { FaHome } from "react-icons/fa"; // Import the home icon from react-icons
 
-const dingSound = "/assets/notification_sound.mp3";
 
 function TimerPage() {
   const [mode, setMode] = useState("work"); // 'work' or 'break'
   const [timeLeft, setTimeLeft] = useState(0.1 * 60); // 5 minutes in seconds
   const [isRunning, setIsRunning] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
-  const [playSound, setPlaySound] = useState(Sound.status.STOPPED); // Sound status
 
   useEffect(() => {
     let interval;
@@ -23,7 +20,6 @@ function TimerPage() {
             const newMode = mode === "work" ? "break" : "work";
             setMode(newMode);
             setShowNotification(true);
-            setPlaySound(Sound.status.PLAYING);
 
             setTimeout(() => {
               const notificationElement = document.querySelector(".notification");
@@ -66,7 +62,6 @@ function TimerPage() {
       {/* Timer Box */}
       <div className="flex-grow flex justify-center items-center p-10">
         <div className={`p-10 rounded-2xl shadow-lg backdrop-blur-sm ${mode === "work" ? "bg-work-red" : "bg-break-teal"}`}>
-          <Sound url={dingSound} playStatus={playSound} onFinishedPlaying={() => setPlaySound(Sound.status.STOPPED)} />
           <h1 className="text-4xl font-bold mb-5 text-center">{mode === "work" ? "Work" : "Break"}</h1>
           <div className="text-6xl font-bold mb-8 text-center">
             {Math.floor(timeLeft / 60)}:{String(timeLeft % 60).padStart(2, "0")}
