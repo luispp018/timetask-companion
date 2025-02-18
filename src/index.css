@@ -7,7 +7,7 @@
 html, body {
   height: 100%;
   margin: 0;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Roboto', sans-serif;
   background: #0d1117; /* Dark background */
   color: #c9d1d9; /* Light text color for contrast */
 }
@@ -25,25 +25,8 @@ html, body {
   text-align: center;
 }
 
-.button {
-  background-color: #1e40af; /* Neon blue background */
-  color: #ffffff; /* White text */
-  border: none;
-  padding: 15px 30px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  font-size: 1rem;
-  font-weight: 500;
-}
-
-.button:hover {
-  background-color: #4f75ff; /* Lighter neon blue on hover */
-  transform: scale(1.05); /* Slightly enlarge the button on hover */
-}
-
 .neon-text {
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: 700;
   color: #1e40af; /* Neon blue text */
   text-shadow: 0 0 5px #1e40af, 0 0 10px #1e40af, 0 0 20px #1e40af, 0 0 40px #1e40af;
@@ -59,67 +42,43 @@ html, body {
   }
 }
 
-.focused-text {
-  font-size: 1.5rem;
-  font-weight: 400;
-  color: #c9d1d9; /* Light text color for contrast */
-  margin-bottom: 20px;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  background-color: #0d1117; /* Same as page background */
-  border-bottom: 1px solid #333; /* Subtle dividing line */
-}
-
-.header-button {
-  background: none;
-  border: none;
-  color: #ffffff; /* White text */
-  font-size: 1.5rem;
-  cursor: pointer;
-  transition: color 0.3s ease;
-}
-
-.header-button:hover {
-  color: #4f75ff; /* Lighter neon blue on hover */
-}
-
-.header-icon {
-  border: 2px solid #ffffff; /* White outline */
-  border-radius: 50%;
-  padding: 5px;
-  transition: border-color 0.3s ease;
-}
-
-.header-icon:hover {
-  border-color: #4f75ff; /* Lighter neon blue on hover */
-}
-
-.clock-icon-button {
+.nav-button {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: none;
-  border: none;
-  cursor: pointer;
-  transition: transform 0.3s ease;
+  background: #161b22; /* Slightly lighter than background */
+  border: 2px solid #1e40af; /* Neon blue border */
+  border-radius: 12px;
+  padding: 16px 24px;
+  width: 250px;
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
 
-.clock-icon-button:hover {
-  transform: scale(1.1); /* Slightly enlarge the button on hover */
+.nav-button:hover {
+  background: #1e40af; /* Neon blue background on hover */
+  border-color: #4f75ff; /* Lighter neon blue border on hover */
+  transform: translateY(-5px); /* Slight lift on hover */
 }
 
-.clock-icon {
-  font-size: 2rem;
-  color: #1e40af; /* Neon blue color */
-  margin-right: 10px;
-}
-
-.clock-icon-label {
+.nav-icon {
   font-size: 1.5rem;
+  color: #1e40af; /* Neon blue color */
+  margin-right: 12px;
+  transition: color 0.3s ease;
+}
+
+.nav-button:hover .nav-icon {
+  color: #ffffff; /* White icon on hover */
+}
+
+.nav-label {
+  font-size: 1.25rem;
+  font-weight: 500;
   color: #c9d1d9; /* Light text color for contrast */
+  transition: color 0.3s ease;
+}
+
+.nav-button:hover .nav-label {
+  color: #ffffff; /* White text on hover */
 }

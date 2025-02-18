@@ -7,7 +7,7 @@ import { FaHome } from "react-icons/fa"; // Import the home icon from react-icon
 
 function TimerPage() {
   const [mode, setMode] = useState("work"); // 'work' or 'break'
-  const [timeLeft, setTimeLeft] = useState(0.1 * 60); // 5 minutes in seconds
+  const [timeLeft, setTimeLeft] = useState(5 * 60); // 5 minutes in seconds
   const [isRunning, setIsRunning] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
 
@@ -44,12 +44,15 @@ function TimerPage() {
   return (
     <div className="flex flex-col h-screen bg-[#0d1117] text-[#c9d1d9]">
       {/* Header */}
-      <header className="header">
-        <Link to="/" aria-label="Go to Home">
-          <button className="header-button">
-            <FaHome />
-          </button>
-        </Link>
+      <header className="w-full p-4 flex items-center justify-between">
+        {/* Left Side: Home and Timer Icons */}
+        <div className="flex items-center gap-4 sm:gap-8">
+          <Link to="/" aria-label="Go to Home">
+            <button className="text-[#c9d1d9] hover:text-white transition duration-300 ease-in-out">
+              <FaHome size={24} />
+            </button>
+          </Link>
+        </div>
       </header>
 
       {/* Notification */}
@@ -67,18 +70,20 @@ function TimerPage() {
             {Math.floor(timeLeft / 60)}:{String(timeLeft % 60).padStart(2, "0")}
           </div>
           <div className="flex justify-center gap-5">
+          <div className="flex justify-center gap-5">
             <button
-              className="bg-white bg-opacity-80 text-gray-800 px-6 py-2 rounded-lg transition duration-300 ease-in-out hover:bg-opacity-100"
+              className="bg-white bg-opacity-80 text-gray-800 px-6 py-2 rounded-lg transition duration-300 ease-in-out hover:bg-opacity-100 w-[100px] text-center"
               onClick={() => setIsRunning(!isRunning)}
             >
               {isRunning ? "Pause" : "Start"}
             </button>
             <button
-              className="bg-white bg-opacity-80 text-gray-800 px-6 py-2 rounded-lg transition duration-300 ease-in-out hover:bg-opacity-100"
+              className="bg-white bg-opacity-80 text-gray-800 px-6 py-2 rounded-lg transition duration-300 ease-in-out hover:bg-opacity-100 w-[100px] text-center"
               onClick={() => setTimeLeft(mode === "work" ? 5 * 60 : 1 * 60)}
             >
               Reset
             </button>
+          </div>
           </div>
         </div>
       </div>
