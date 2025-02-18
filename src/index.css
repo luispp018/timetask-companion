@@ -24,7 +24,7 @@ html, body {
 }
 
 .app-title {
-  font-size: 3rem;
+  font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 700;
   background: linear-gradient(90deg, #ffffff, #4a4b50);
   -webkit-background-clip: text;
