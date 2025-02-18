@@ -1,13 +1,12 @@
-// src/TimerPage.jsx
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./index.css";
-import { FaHome } from "react-icons/fa"; // Import the home icon from react-icons
+import { FaHome } from "react-icons/fa";
 
 
 function TimerPage() {
-  const [mode, setMode] = useState("work"); // 'work' or 'break'
-  const [timeLeft, setTimeLeft] = useState(5 * 60); // 5 minutes in seconds
+  const [mode, setMode] = useState("work");
+  const [timeLeft, setTimeLeft] = useState(5 * 60);
   const [isRunning, setIsRunning] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
 
@@ -45,7 +44,6 @@ function TimerPage() {
     <div className="flex flex-col h-screen bg-[#0d1117] text-[#c9d1d9]">
       {/* Header */}
       <header className="w-full p-4 flex items-center justify-between">
-        {/* Left Side: Home and Timer Icons */}
         <div className="flex items-center gap-4 sm:gap-8">
           <Link to="/" aria-label="Go to Home">
             <button className="text-[#c9d1d9] hover:text-white transition duration-300 ease-in-out">

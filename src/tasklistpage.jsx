@@ -29,7 +29,6 @@ const TaskPage = () => {
     <div className="min-h-screen bg-[#0d1117] text-[#c9d1d9] flex flex-col">
       {/* Header */}
       <header className="w-full p-4 flex items-center justify-between">
-        {/* Left Side: Home and Timer Icons */}
         <div className="flex items-center gap-4 sm:gap-8">
           <Link to="/" aria-label="Go to Home">
             <button className="text-[#c9d1d9] hover:text-white transition duration-300 ease-in-out">
@@ -44,30 +43,38 @@ const TaskPage = () => {
         <div className="w-full max-w-md">
           {/* Task List Box */}
           <div className="bg-[#161b22] p-6 rounded-lg shadow-lg mb-6">
+            <div className="flex justify-center mb-4">
+              <h2 className="text-xl font-bold">Task List</h2>
+            </div>
             <ul className="space-y-3">
-              {tasks.map(task => (
-                <li key={task.id} className="flex items-center justify-between">
-                  <span
-                    className={`${task.completed ? 'text-red-500 line-through' : 'text-[#c9d1d9]'}`}
-                  >
-                    {task.text}
-                  </span>
-                  <div className="flex items-center gap-2">
-                    {!task.completed && (
-                      <button
-                        onClick={() => markTaskAsDone(task.id)}
-                        className="text-green-500 hover:text-green-700 focus:outline-none"
-                      >
-                        Done
-                      </button>
-                    )}
-                    <button
-                      onClick={() => removeTask(task.id)}
-                      className="text-red-500 hover:text-red-700 focus:outline-none"
+              {tasks.map((task, index) => (
+                <li key={task.id} className="flex flex-col items-center justify-between">
+                  <div className="w-full flex items-center justify-between">
+                    <span
+                      className={`${task.completed ? 'text-red-500 line-through' : 'text-[#c9d1d9]'}`}
                     >
-                      Remove
-                    </button>
+                      {task.text}
+                    </span>
+                    <div className="flex items-center gap-2">
+                      {!task.completed && (
+                        <button
+                          onClick={() => markTaskAsDone(task.id)}
+                          className="text-green-500 hover:text-green-700 focus:outline-none"
+                        >
+                          Done
+                        </button>
+                      )}
+                      <button
+                        onClick={() => removeTask(task.id)}
+                        className="text-red-500 hover:text-red-700 focus:outline-none"
+                      >
+                        Remove
+                      </button>
+                    </div>
                   </div>
+                  {index < tasks.length - 1 && (
+                    <hr className="w-3/4 border-t border-[#30363d] my-3" />
+                  )}
                 </li>
               ))}
             </ul>
