@@ -6,7 +6,7 @@ import { FaHome } from "react-icons/fa";
 
 function TimerPage() {
   const [mode, setMode] = useState("work");
-  const [timeLeft, setTimeLeft] = useState(0.1 * 60);
+  const [timeLeft, setTimeLeft] = useState(5 * 60);
   const [isRunning, setIsRunning] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
 
