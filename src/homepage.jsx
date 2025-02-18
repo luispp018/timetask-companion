@@ -1,4 +1,3 @@
-// src/HomePage.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaClock, FaTasks } from 'react-icons/fa';

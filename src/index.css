@@ -29,18 +29,28 @@ html, body {
   font-size: 3rem;
   font-weight: 700;
   color: #1e40af; /* Neon blue text */
-  text-shadow: 0 0 5px #1e40af, 0 0 10px #1e40af, 0 0 20px #1e40af, 0 0 40px #1e40af;
-  animation: neon-flicker 1.5s infinite alternate;
+  text-shadow:
+    0 0 5px #1e40af,
+    0 0 10px #1e40af,
+    0 0 15px #1e40af;
+  animation: neon-pulse 2s infinite;
 }
 
-@keyframes neon-flicker {
-  from {
-    text-shadow: 0 0 5px #1e40af, 0 0 10px #1e40af, 0 0 20px #1e40af, 0 0 40px #1e40af;
+@keyframes neon-pulse {
+  0%, 100% {
+    text-shadow:
+      0 0 5px #1e40af,
+      0 0 10px #1e40af,
+      0 0 15px #1e40af;
   }
-  to {
-    text-shadow: 0 0 10px #1e40af, 0 0 20px #1e40af, 0 0 40px #1e40af, 0 0 80px #1e40af;
+  50% {
+    text-shadow:
+      0 0 10px #1e40af,
+      0 0 20px #1e40af,
+      0 0 30px #1e40af;
   }
 }
+
 
 .nav-button {
   display: flex;
