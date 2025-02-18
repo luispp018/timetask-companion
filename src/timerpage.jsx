@@ -91,7 +91,10 @@ function TimerPage() {
             </button>
             <button
               className="bg-white bg-opacity-80 text-gray-800 px-6 py-2 rounded-lg transition duration-300 ease-in-out hover:bg-opacity-100 w-[100px] text-center"
-              onClick={() => setTimeLeft(mode === "work" ? 5 * 60 : 1 * 60)}
+              onClick={() => {
+                setIsRunning(false);
+                setTimeLeft(mode === "work" ? 5 * 60 : 1 * 60);
+              }}
             >
               Reset
             </button>
