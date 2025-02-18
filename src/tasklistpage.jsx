@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaHome, FaClock } from 'react-icons/fa'; // Import the home and clock icons from react-icons
+import { FaHome } from 'react-icons/fa';
 
 const TaskPage = () => {
   const [tasks, setTasks] = useState([]);
@@ -44,7 +44,7 @@ const TaskPage = () => {
           {/* Task List Box */}
           <div className="bg-[#161b22] p-6 rounded-lg shadow-lg mb-6">
             <div className="flex justify-center mb-4">
-              <h2 className="text-xl font-bold">Task List</h2>
+              <h2 className="text-xl font-bold">Todo List</h2>
             </div>
             <ul className="space-y-3">
               {tasks.map((task, index) => (
@@ -80,7 +80,7 @@ const TaskPage = () => {
             </ul>
           </div>
 
-          {/* Minimalistic Add Task Input and Button */}
+          {/* Add Task Input */}
           <div className="flex items-center border-b border-[#30363d] pb-2">
             <input
               type="text"
