@@ -6,7 +6,7 @@ import { FaHome } from "react-icons/fa";
 
 function TimerPage() {
   const [mode, setMode] = useState("work");
-  const [timeLeft, setTimeLeft] = useState(5 * 60);
+  const [timeLeft, setTimeLeft] = useState(0.1 * 60);
   const [isRunning, setIsRunning] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
 
@@ -19,18 +19,30 @@ function TimerPage() {
             const newMode = mode === "work" ? "break" : "work";
             setMode(newMode);
             setShowNotification(true);
-
+  
+            // Allow fade-in animation
             setTimeout(() => {
               const notificationElement = document.querySelector(".notification");
               if (notificationElement) {
+                notificationElement.classList.add("opacity-100");
+                notificationElement.classList.remove("opacity-0");
+              }
+            }, 50);
+  
+            // Allow fade-out animation
+            setTimeout(() => {
+              const notificationElement = document.querySelector(".notification");
+              if (notificationElement) {
+                notificationElement.classList.remove("opacity-100");
                 notificationElement.classList.add("opacity-0");
               }
             }, 2500);
-
+  
+            // Remove notification from DOM after fade-out completes
             setTimeout(() => {
               setShowNotification(false);
-            }, 3000);
-
+            }, 3500);
+  
             return newMode === "work" ? 5 * 60 : 1 * 60;
           }
           return prevTime - 1;
@@ -39,6 +51,8 @@ function TimerPage() {
     }
     return () => clearInterval(interval);
   }, [isRunning, mode]);
+  
+  
 
   return (
     <div className="flex flex-col h-screen bg-[#0d1117] text-[#c9d1d9]">
@@ -55,7 +69,7 @@ function TimerPage() {
 
       {/* Notification */}
       {showNotification && (
-        <div className="notification fixed top-5 left-1/2 transform -translate-x-1/2 bg-white bg-opacity-90 text-gray-800 px-5 py-2 rounded-lg shadow-lg font-bold transition-opacity duration-500 ease-in-out opacity-0 animate-fadeIn z-50">
+        <div className="notification fixed top-5 left-1/2 transform -translate-x-1/2 bg-white bg-opacity-90 text-gray-800 px-5 py-2 rounded-lg shadow-lg font-bold transition-opacity duration-1000 ease-in-out opacity-0 z-50">
           {mode === "work" ? "Time to get back to work!" : "Time for a break!"}
         </div>
       )}

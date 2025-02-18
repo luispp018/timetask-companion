@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       animation: {
-        fadeIn: 'fadeIn 1s ease-in-out', // Custom fade-in animation
+        fadeIn: 'fadeIn 1s ease-in-out',
       },
       colors: {
         'work-red': '#B03A2E',
